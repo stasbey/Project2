@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WordWideWeb</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="static/js/node_modules/d3-radial/build/d3-radial.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/js/style.css">
+  <script type="text/javascript">
+    var languages = '{{ languages|tojson }}';
+    var language = '{{ language|tojson }}';
+  </script>
+  </head>
+</head>
+
+<body>
+
+  <div class="container" width="200px" style="z-index: 2; position: absolute; left: 0; top: 0")>
+    <div class="row">
+      <div class="col-md-2">
+        <form action="/" method="post">
+            <h5>Language</h5>
+            <select id="selDataset" name="languages" method="GET" action="/">
+              <option value="{{languages[0]}}" selected>{{languages[0]}}</option>
+              {% for languages in languages[1:] %}
+                <option value="{{languages}}">{{languages}}</option>
+              {% endfor %}
+            </select>        
+            <button type="submit">Submit</button>
+            <div id="infobox"><h1></h1></div>
+        </form>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="static/js/app.js"></script>
+</body>
+
+</html>
